@@ -7,8 +7,8 @@ import { DirectoryService } from '../services/directory.service';
   styleUrls: ['./directory.component.scss'],
 })
 export class DirectoryComponent implements OnInit {
-  dirList: any[] = [];
-  filteredDirList: any[] = [];
+  itemList: any[] = [];
+  filteredItemList: any[] = [];
   searchText: string = '';
   constructor(private apiService: DirectoryService) {}
 
@@ -18,18 +18,20 @@ export class DirectoryComponent implements OnInit {
 
   getAllDirectories() {
     this.apiService.getAllDirectories().subscribe((res) => {
-      this.dirList = res;
-      this.filteredDirList = res;
+      this.itemList = res;
+      this.filteredItemList = res;
     });
   }
   searchItem(event: KeyboardEvent) {
     this.filterDirList();
   }
   filterDirList() {
-    // this.filteredDirList = this.dirList.filter();
-
-    this.filteredDirList = this.dirList.filter((x) =>
-      x.name.toLowerCase().startsWith('p')
-    );
+    if (this.searchText == '') {
+      this.filteredItemList = this.itemList;
+    } else {
+      this.filteredItemList = this.itemList.filter((x) =>
+        x.name.toLowerCase().startsWith(this.searchText)
+      );
+    }
   }
 }
