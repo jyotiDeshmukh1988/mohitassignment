@@ -1,1 +1,26 @@
-<p>directory works!</p>
+<div class="page-content">
+  <div class="header-item">
+    <h2>Our Directory</h2>
+    <div class="search-box">
+      <!-- <form class="form-inline d-flex">
+        <input
+          class="form-control form-control-md"
+          type="text"
+          placeholder="Search"
+          aria-label="Search"
+          (keyup)="searchItem($event)"
+        />
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </form> -->
+    </div>
+  </div>
+  <div class="dir-list">
+    <div class="dir-item-list">
+      <app-directory-cards
+        class="directory-item"
+        [cardInfo]="item"
+        *ngFor="let item of filteredDirList; let i = index"
+      ></app-directory-cards>
+    </div>
+  </div>
+</div>

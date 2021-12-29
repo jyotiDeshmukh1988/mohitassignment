@@ -1,0 +1,22 @@
+.dir-item-list {
+  display: flex;
+  flex-wrap: wrap;
+  .directory-item {
+    width: 25%;
+  }
+}
+.page-content {
+  padding: 30px;
+}
+.search-box {
+  .form-control {
+    width: 350px;
+  }
+}
+.header-item {
+  display: flex;
+  margin-bottom: 30px;
+
+  align-items: center;
+  justify-content: space-between;
+}

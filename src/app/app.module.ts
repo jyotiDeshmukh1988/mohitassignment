@@ -11,7 +11,9 @@ import { DirectoryComponent } from './directory/directory.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DirectoryCardsComponent } from './directory/directory-cards/directory-cards.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,8 +25,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     DirectoryComponent,
     SigninComponent,
     SignupComponent,
+    DirectoryCardsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
