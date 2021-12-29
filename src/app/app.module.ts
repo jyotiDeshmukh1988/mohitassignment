@@ -11,6 +11,7 @@ import { DirectoryComponent } from './directory/directory.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { RouterModule } from '@angular/router';
     SigninComponent,
     SignupComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule],
+  imports: [BrowserModule, AppRoutingModule, RouterModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
