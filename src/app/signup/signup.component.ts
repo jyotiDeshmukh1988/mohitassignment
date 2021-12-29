@@ -13,15 +13,27 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signUpForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      pwd: new FormControl('', Validators.required),
-      phone: new FormControl('', Validators.required),
+      name: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^[a-zA-Z ]*$/),
+      ]),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^\w.+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/),
+      ]),
+      pwd: new FormControl('', [Validators.required]),
+      phone: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$'),
+      ]),
     });
   }
   signUpFormData() {
     if (this.signUpForm.valid) {
       console.log(this.signUpForm.value);
+      alert('Account Created and stored in local');
+      localStorage.setItem('userdetail', JSON.stringify(this.signUpForm.value));
+      this.signUpForm.reset(); //;
     }
   }
 }
